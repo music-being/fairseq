@@ -18,8 +18,12 @@ class MaskedLMDictionary(Dictionary):
         eos="</s>",
         unk="<unk>",
         mask="<mask>",
+        extra_special_symbols=None,
+        add_special_symbols=True,
     ):
-        super().__init__(pad=pad, eos=eos, unk=unk)
+        super().__init__(pad=pad, eos=eos, unk=unk,
+                         extra_special_symbols=extra_special_symbols,
+                         add_special_symbols=add_special_symbols)
         self.mask_word = mask
         self.mask_index = self.add_symbol(mask)
         self.nspecial = len(self.symbols)
