@@ -502,6 +502,9 @@ def load_model_ensemble_and_task(
                     f"Loaded {shard_idx} shards in {elapsed:.2f}s, {elapsed / (shard_idx+1):.2f}s/shard"
                 )
 
+        print("Model built!")
+        # torch.save(model, "model.pth")
+
         # build model for ensemble
         ensemble.append(model)
     return ensemble, cfg, task
